@@ -35,8 +35,8 @@ let EditContact = () => {
                 setState({ ...state, loading: true })
                 let response = await ContactService.getContact(contactId)
                 let groupResponse = await ContactService.getGroups()
-                console.log('response:', response.data[0])
-                console.log('groupResponse:', groupResponse)
+                //console.log('response:', response.data[0])
+                //console.log('groupResponse:', groupResponse)
                 setState({
                     ...state, loading: false,
                     contact: response.data[0],
@@ -68,12 +68,12 @@ let EditContact = () => {
         try {
             let response = await ContactService.updateContact(state.contact, contactId)
             //NOTE - navigate("/contacts/list")
-            console.log('eljutsz te ide', response.data)
+            //console.log('eljutsz te ide', response.data)
             //INFO - alert('naMiAHelyzet')
             if (response) {
-                console.log('eljutsz te ide', response)
+                //console.log('eljutsz te ide', response)
                 navigate('/contacts/list', { replace: true })
-                console.log('eljutsz te ide *****', response.data.name)
+                //console.log('eljutsz te ide *****', response.data.name)
                 //INFO - alert('naMiAHelyzet ****')
             }
         } catch (error) {

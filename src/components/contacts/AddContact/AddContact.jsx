@@ -39,8 +39,8 @@ let AddContact = () => {
         if (selectedfile.length > 0) {
             const [imageFile] = selectedfile;
             const fileReader = new FileReader();
-            console.log(selectedfile)
-            console.log('file size: ', selectedfile[0].size);
+            //console.log(selectedfile)
+            //console.log('file size: ', selectedfile[0].size);
             if (selectedfile[0].size > 500000) {
                 alert('Please choose a file size smaller than 500 KB ...')
             } else {
@@ -59,7 +59,7 @@ let AddContact = () => {
                 fileReader.readAsDataURL(imageFile);
             }
         }
-        console.log(event.target.value)
+        //console.log(event.target.value)
         //NOTE - end new code
 
         setState({
@@ -94,9 +94,9 @@ let AddContact = () => {
             let response = await ContactService.createContact(state.contact)
             //navigate("/contacts/list")
             if (response) {
-                console.log('eljutsz te ide', response)
+                //console.log('eljutsz te ide', response)
                 navigate('/contacts/list', { replace: true })
-                console.log('eljutsz te ide', response)
+                //console.log('eljutsz te ide', response)
             }
         } catch (error) {
             setState({ ...state, errorMessage: error.message })
