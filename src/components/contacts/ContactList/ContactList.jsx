@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ContactService } from '../../../services/ContactService'
 import Spinner from "../../Spinner/Spinner";
-
+//[x] - ContactList OK 
 let ContactList = () => {
 
     let [query, setQuery] = useState({

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ContactService } from '../../../services/ContactService'
 import Spinner from "../../Spinner/Spinner";
-
+//[x] - ViewContact OK 
 let ViewContact = () => {
 
     let { contactId } = useParams()
@@ -21,13 +21,15 @@ let ViewContact = () => {
                 setState({ ...state, loading: true })
                 let response = await ContactService.getContact(contactId)
                 let groupResponse = await ContactService.getGroup(response.data)
+                //console.log(response.data[0])
+                //console.log(groupResponse.data[0])
                 setState({
                     ...state,
                     loading: false,
-                    contact: response.data,
-                    group: groupResponse.data
+                    contact: response.data[0],
+                    group: groupResponse.data[0]
                 })
-                console.log(response.data)
+                //console.log(response.data[0])
             }
         } catch (error) {
             setState({

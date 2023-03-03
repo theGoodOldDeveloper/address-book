@@ -70,6 +70,39 @@
       "groupId": "5",
       "htmlbase64": "C:\\fakepath\\lamaa.jpg",
       "id": "xzbspA1"
+    },
+    {
+      "name": "teszt elek",
+      "photo": "",
+      "mobile": "1111111",
+      "email": "h@h",
+      "company": "world",
+      "title": "masodlagos",
+      "groupId": "6",
+      "htmlbase64": "",
+      "id": "ls2_ygg"
+    },
+    {
+      "name": "teszt elek",
+      "photo": "",
+      "mobile": "9999999",
+      "email": "h@h",
+      "company": "hpme",
+      "title": "hhhhhhh",
+      "groupId": "5",
+      "htmlbase64": "",
+      "id": "IHTTYcv"
+    },
+    {
+      "name": "teszt elek",
+      "photo": "",
+      "mobile": "11111111111",
+      "email": "f@f",
+      "company": "home",
+      "title": "sdsdsdsd",
+      "groupId": "5",
+      "htmlbase64": "",
+      "id": "dc6LsWV"
     }
   ],
   "groups": [

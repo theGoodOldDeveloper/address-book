@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ContactService } from "../../../services/ContactService";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+//[x] - AddContact OK 
 let AddContact = () => {
 
     let navigate = useNavigate()
@@ -36,12 +36,10 @@ let AddContact = () => {
     var srcData = ''
     let updateInputBase64 = (event) => {
         const selectedfile = event.target.files;
-
         if (selectedfile.length > 0) {
             const [imageFile] = selectedfile;
             const fileReader = new FileReader();
             console.log(selectedfile)
-
             console.log('file size: ', selectedfile[0].size);
             if (selectedfile[0].size > 500000) {
                 alert('Please choose a file size smaller than 500 KB ...')
@@ -49,7 +47,6 @@ let AddContact = () => {
                 fileReader.onload = () => {
                     srcData = fileReader.result;
                     //INFO console.log('base64:', srcData)
-
                     setState({
                         ...state,
                         contact: {
@@ -58,13 +55,10 @@ let AddContact = () => {
                             [event.target.name]: event.target.value
                         }
                     })
-
                 };
                 fileReader.readAsDataURL(imageFile);
             }
         }
-
-
         console.log(event.target.value)
         //NOTE - end new code
 

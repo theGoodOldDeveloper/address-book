@@ -35,9 +35,11 @@ let EditContact = () => {
                 setState({ ...state, loading: true })
                 let response = await ContactService.getContact(contactId)
                 let groupResponse = await ContactService.getGroups()
+                console.log('response:', response.data[0])
+                console.log('groupResponse:', groupResponse)
                 setState({
                     ...state, loading: false,
-                    contact: response.data,
+                    contact: response.data[0],
                     groups: groupResponse.data
                 })
             }

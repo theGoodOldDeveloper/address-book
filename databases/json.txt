@@ -1,0 +1,35 @@
+    name, company, email, photo, groupId, mobile, title
+
+{name: 'teszt elek', photo: '', mobile: '11111111111', email: 'f@f', company: 'home', …}
+
+company: "home"
+email: "f@f"
+groupId: "1"
+    htmlbase64: ""
+mobile: "33333"
+name: "teszt elek"
+photo: ""
+title: "fffff"
+
+******************************
+[{
+"id": "D6BNdWnHI",
+"name": "Tibor Vegh",
+"company": "full stack freelancer",
+"email": "thegoodolddeveloper@gmail.com",
+"title": "boss",
+"mobile": "609283653",
+"photo": ""
+"groupId": "3"
+}]
+
+{
+"id": "qqqNdyt3I",
+"name": "Tibor Vegh",
+"company": "full stack freelancer",
+"email": "thegoodolddeveloper@gmail.com",
+"title": "boss",
+"mobile": "609283653",
+"photo": "ssss",
+"groupId": "3"
+}
