@@ -5,6 +5,7 @@ export class ContactService {
     //static serverURL = 'http://localhost:9000'
     //INFO - SQLite-server 
     static serverURL = 'http://80.211.204.154:5012'
+    //static serverURL = 'http://localhost:5012'
 
     static getGroups() {
         let dataURL = `${this.serverURL}/groups`
@@ -29,17 +30,17 @@ export class ContactService {
 
     static getContact(contactId) {
         let dataURL = `${this.serverURL}/contacts/${contactId}`
-        console.log(dataURL)
+        //console.log(dataURL)
         return axios.get(dataURL)
     }
 
     static createContact(contact) {
         let dataURL = `${this.serverURL}/createcontacts`
 
-        console.log(dataURL, contact)
-        console.log(contact)
-        alert('hoohahoo')
-        axios.post(dataURL, contact)
+        //console.log(dataURL, contact)
+        //console.log(contact)
+        //alert('hoohahoo')
+        return axios.post(dataURL, contact)
     }
 
     static updateContact(contact, contactId) {

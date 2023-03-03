@@ -92,12 +92,12 @@ let AddContact = () => {
         event.preventDefault()
         try {
             let response = await ContactService.createContact(state.contact)
-            navigate("/contacts/list")
-            /* if (response) {
+            //navigate("/contacts/list")
+            if (response) {
                 console.log('eljutsz te ide', response)
                 navigate('/contacts/list', { replace: true })
                 console.log('eljutsz te ide', response)
-            } */
+            }
         } catch (error) {
             setState({ ...state, errorMessage: error.message })
             navigate('/contacts/add', { replace: false })

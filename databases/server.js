@@ -7,6 +7,9 @@ const cors = require('cors')
 const { nanoid } = require("nanoid")
 
 const app = express()
+app.use(bodyParser.json({ limit: '5mb' }));
+app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
+
 let sql
 let port = process.env.SERVERPORT
 app.use(bodyParser.json())
@@ -15,6 +18,7 @@ app.use(cors({
     origin: "*",
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
 }))
+
 
 //INFO - database connection - https://youtu.be/_Q-i0LiRd0A?t=289
 const db = new sqlite.Database("./addressbook.db", sqlite.OPEN_READWRITE, (err) => {
@@ -30,14 +34,14 @@ const db = new sqlite.Database("./addressbook.db", sqlite.OPEN_READWRITE, (err) 
 app.get('/contacts', (req, res) => {
     sql = 'SELECT * FROM contacts;'
     db.all(sql, [], (err, response) => {
-        console.log('response:(get ALL contacts) 😁 ', response)
+        //console.log('response:(get ALL contacts) 😁 ', response)
         if (err) return console.error(err)
         res.send(response)
     })
 })
 //INFO - get ALL groups
 app.get('/groups', (req, res) => {
-    console.log('✔')
+    //console.log('✔')
     sql = 'SELECT * FROM groups;'
     db.all(sql, [], (err, response) => {
         //console.log('response:(get ALL groups) 😁 ', response)
@@ -49,11 +53,11 @@ app.get('/groups', (req, res) => {
 app.get('/groups/:groupId', (req, res) => {
     //console.log('✔')
     var groupId = (req.params.groupId)
-    console.log('req.params.groupId:(get ONE groupName) 😁 ', [groupId])
+    //console.log('req.params.groupId:(get ONE groupName) 😁 ', [groupId])
     sql = (`SELECT * FROM groups WHERE id = ${groupId}`)
-    console.log(sql)
+    //console.log(sql)
     db.all(sql, [], (err, response) => {
-        console.log('response:(get ONE groupName) 😁 ', response)
+        //console.log('response:(get ONE groupName) 😁 ', response)
         if (err) return console.error(err)
         res.send(response)
     })
@@ -61,11 +65,11 @@ app.get('/groups/:groupId', (req, res) => {
 //INFO - get ONE contact(contactId)
 app.get('/contacts/:id', (req, res) => {
     var id = (req.params.id)
-    console.log('req.params.id:(get ONE contact) 😁 ', [id])
+    //console.log('req.params.id:(get ONE contact) 😁 ', [id])
     sql = `SELECT * FROM contacts WHERE id = "${id}"`
-    console.log(sql)
+    //console.log(sql)
     db.all(sql, [], (err, response) => {
-        console.log('response:(get ONE contact) 😁 ', response)
+        //console.log('response:(get ONE contact) 😁 ', response)
         if (err) return console.error(err)
         res.send(response)
     })
@@ -75,9 +79,9 @@ app.get('/contacts/:id', (req, res) => {
 app.post('/createcontacts/', bodyParser.json(), async (req, res) => {
     //NOTE - id generator -> nanoid
     var id = nanoid(10)
-    console.log('req.body (id): ', req.body, id)
+    //console.log('req.body (id): ', req.body, id)
     var contact = req.body
-    console.log('req.params.contact:(POST contact) 😁 ', [contact])
+    //console.log('req.params.contact:(POST contact) 😁 ', [contact])
     sql = "INSERT INTO contacts (id, name, company, email, title, mobile, photo, groupId) VALUES (?,?,?,?,?,?,?,?)"
     await db.run(sql, [id, contact.name, contact.company, contact.email,
         contact.title, contact.mobile, contact.photo, contact.groupId],
@@ -109,11 +113,11 @@ app.put('/contacts/:id', (req, res) => {
 //INFO - delete contact
 app.delete('/contacts/:id', (req, res) => {
     var id = (req.params.id)
-    console.log('req.params.id:(get ONE contact) 😁 ', [id])
+    //console.log('req.params.id:(get ONE contact) 😁 ', [id])
     sql = `DELETE FROM contacts WHERE id=?`
-    console.log(sql)
+    //console.log(sql)
     db.run(sql, [id], (err, response) => {
-        console.log('response:(get ONE contact) 😁 ', response)
+        //console.log('response:(get ONE contact) 😁 ', response)
         if (err) return console.error(err)
         res.send(response)
     })
